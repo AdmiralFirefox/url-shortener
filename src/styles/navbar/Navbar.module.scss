@@ -1,0 +1,180 @@
+@use "../themeprovider/themeprovider" as theme;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+$link-transition: 0.3s ease-in-out;
+$nav-spacing: 1.7em;
+
+// Navbar Desktop
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.7em;
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 2.4em;
+
+    img {
+      margin-left: $nav-spacing;
+    }
+
+    a {
+      display: none;
+      font-family: "Poppins", sans-serif;
+      text-decoration: none;
+      font-weight: 700;
+      color: theme.$gray-violet-color;
+      transition: color $link-transition;
+      font-size: 1rem;
+
+      &:hover {
+        color: theme.$dark-blue-color;
+      }
+    }
+
+    button {
+      display: none;
+      font-family: "Poppins", sans-serif;
+      background: theme.$cyan-color;
+      color: theme.$white-color;
+      border: none;
+      padding: 0.7em 1.9em;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background $link-transition;
+
+      &:hover {
+        background: theme.$cyan-color-hover;
+      }
+    }
+
+    .hamburger-icon-wrapper {
+      margin-right: $nav-spacing;
+    }
+  }
+}
+
+@media (min-width: theme.$media-query-normal-value) {
+  .navbar-wrapper {
+    margin-top: 2.5em;
+    justify-content: space-around;
+
+    nav {
+      img {
+        margin-left: 0;
+      }
+
+      a {
+        display: block;
+      }
+
+      button {
+        display: block;
+      }
+
+      .hamburger-icon-wrapper {
+        display: none;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+// Navbar Mobile
+@mixin nav-mobile-wrapper() {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin nav-mobile() {
+  background: theme.$dark-violet-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 3.8em;
+  margin-top: 1.5em;
+  width: 90%;
+  border-radius: 10px;
+
+  a {
+    font-family: "Poppins", sans-serif;
+    color: theme.$white-color;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color $link-transition;
+    font-size: 1.1rem;
+
+    &:hover {
+      color: theme.$white-color-hover;
+    }
+
+    &:first-of-type {
+      margin-top: 1.7em;
+    }
+
+    &:nth-of-type(3) {
+      margin-bottom: 1em;
+    }
+
+    &:last-of-type {
+      margin-top: 1em;
+    }
+  }
+
+  .navbar-mobile-divider {
+    background: theme.$gray-violet-color;
+    width: min(18em, 80%);
+    height: 0.05em;
+  }
+
+  button {
+    font-family: "Poppins", sans-serif;
+    background: theme.$cyan-color;
+    color: theme.$white-color;
+    border: none;
+    padding: 0.7em 1.9em;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    width: min(20em, 80%);
+    margin-bottom: 2.6em;
+    transition: background $link-transition;
+
+    &:hover {
+      background: theme.$cyan-color-hover;
+    }
+  }
+}
+
+.navbar-mobile-wrapper {
+  @include nav-mobile-wrapper;
+
+  .navbar-mobile {
+    @include nav-mobile;
+    transform: translateY(-60em);
+    transition: transform 0.5s ease-in-out;
+  }
+}
+
+.navbar-mobile-wrapper {
+  @include nav-mobile-wrapper;
+
+  .navbar-mobile-active {
+    @include nav-mobile;
+    transform: translateY(0em);
+    transition: transform 0.5s ease-in-out;
+  }
+}
+
+@media (min-width: theme.$media-query-normal-value) {
+  .navbar-mobile-wrapper {
+    display: none;
+  }
+}
