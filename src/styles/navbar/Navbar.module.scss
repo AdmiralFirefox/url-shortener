@@ -34,26 +34,29 @@ $nav-spacing: 1.7em;
       }
     }
 
-    button {
-      display: none;
-      font-family: "Poppins", sans-serif;
-      background: theme.$cyan-color;
-      color: theme.$white-color;
-      border: none;
-      padding: 0.7em 1.9em;
-      font-size: 0.9rem;
-      font-weight: 700;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: background $link-transition;
+    form {
+      button {
+        display: none;
+        font-family: "Poppins", sans-serif;
+        background: theme.$cyan-color;
+        color: theme.$white-color;
+        border: none;
+        padding: 0.7em 1.9em;
+        font-size: 0.9rem;
+        font-weight: 700;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background $link-transition;
 
-      &:hover {
-        background: theme.$cyan-color-hover;
+        &:hover {
+          background: theme.$cyan-color-hover;
+        }
       }
     }
 
     .hamburger-icon-wrapper {
       margin-right: $nav-spacing;
+      -webkit-tap-highlight-color: transparent;
     }
   }
 }
@@ -72,8 +75,10 @@ $nav-spacing: 1.7em;
         display: block;
       }
 
-      button {
-        display: block;
+      form {
+        button {
+          display: block;
+        }
       }
 
       .hamburger-icon-wrapper {
@@ -133,22 +138,28 @@ $nav-spacing: 1.7em;
     height: 0.05em;
   }
 
-  button {
-    font-family: "Poppins", sans-serif;
-    background: theme.$cyan-color;
-    color: theme.$white-color;
-    border: none;
-    padding: 0.7em 1.9em;
-    font-size: 0.9rem;
-    font-weight: 700;
-    border-radius: 50px;
-    cursor: pointer;
-    width: min(20em, 80%);
-    margin-bottom: 2.6em;
-    transition: background $link-transition;
+  form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
-    &:hover {
-      background: theme.$cyan-color-hover;
+    button {
+      font-family: "Poppins", sans-serif;
+      background: theme.$cyan-color;
+      color: theme.$white-color;
+      border: none;
+      padding: 0.7em 1.9em;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      width: min(20em, 80%);
+      margin-bottom: 2.6em;
+      transition: background $link-transition;
+
+      &:hover {
+        background: theme.$cyan-color-hover;
+      }
     }
   }
 }

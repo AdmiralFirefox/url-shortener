@@ -21,7 +21,9 @@ const Navbar = () => {
 
         <nav>
           <a href="/">Login</a>
-          <button>Sign Up</button>
+          <form>
+            <button formAction="/">Sign Up</button>
+          </form>
           <div className={styles["hamburger-icon-wrapper"]}>
             <Hamburger
               size={42}
@@ -44,7 +46,9 @@ const Navbar = () => {
           <a href="/">Resources</a>
           <div className={styles["navbar-mobile-divider"]} />
           <a href="/">Login</a>
-          <button>Sign Up</button>
+          <form>
+            <button formAction="/">Sign Up</button>
+          </form>
         </div>
       </header>
     </>
