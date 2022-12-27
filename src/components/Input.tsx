@@ -15,25 +15,39 @@ interface LinkProps {
 const Input = () => {
   const [links, setLinks] = useState<LinkProps[]>([]);
   const [urlLink, setUrlLink] = useState("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    try {
-      const res = await Axios.get(
-        `https://api.shrtco.de/v2/shorten?url=${urlLink}`
-      );
+    if (
+      !urlLink.includes("http://") &&
+      !urlLink.includes("https://") &&
+      urlLink !== ""
+    ) {
+      setErrorMessage("Please enter a valid url.");
+      setError(true);
+    } else {
+      setError(false);
+      try {
+        const res = await Axios.get(
+          `https://api.shrtco.de/v2/shorten?url=${urlLink}`
+        );
 
-      const newLink = {
-        id: uuidv4(),
-        shortLink: res.data.result.short_link,
-        originalLink: urlLink,
-      };
+        const newLink = {
+          id: uuidv4(),
+          shortLink: res.data.result.short_link,
+          originalLink: urlLink,
+        };
 
-      setLinks([...links].concat(newLink));
-      setUrlLink("");
-    } catch (err) {
-      console.log(err);
+        setLinks([...links].concat(newLink));
+        setUrlLink("");
+      } catch (err) {
+        console.log(err);
+        setErrorMessage("Something went wrong. Please double check your url.");
+        setError(true);
+      }
     }
   };
 
@@ -59,12 +73,20 @@ const Input = () => {
     <>
       <div className={styles["input-wrapper"]}>
         <form className={styles["input-content"]} onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Shorten a link here..."
-            onChange={handleChange}
-            value={urlLink}
-          />
+          <div
+            className={
+              error ? styles["input-form-error-active"] : styles["input-form"]
+            }
+          >
+            <input
+              type="text"
+              placeholder="Shorten a link here..."
+              onChange={handleChange}
+              value={urlLink}
+              required
+            />
+            {error ? <p>{errorMessage}</p> : ""}
+          </div>
           <button type="submit">Shorten It!</button>
         </form>
       </div>

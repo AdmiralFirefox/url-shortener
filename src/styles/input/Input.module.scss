@@ -4,6 +4,30 @@
 $link-transition: 0.3s ease-in-out;
 $link-padding: 1.5em;
 
+@mixin input-form($form-border) {
+  input {
+    font-family: "Poppins", sans-serif;
+    width: min(42em, 100%);
+    border: none;
+    padding: 1em 1.5em;
+    border-radius: 5px;
+    color: theme.$dark-blue-color;
+    font-size: 1rem;
+    font-weight: 500;
+    border: $form-border;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: theme.$gray-violet-color;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+}
+
 // Input Content
 .input-wrapper {
   display: flex;
@@ -24,24 +48,22 @@ $link-padding: 1.5em;
     padding: 2em;
     border-radius: 10px;
 
-    input {
-      font-family: "Poppins", sans-serif;
+    .input-form {
       width: min(42em, 100%);
-      border: none;
-      padding: 1em 1.5em;
-      border-radius: 5px;
-      color: theme.$dark-blue-color;
-      font-size: 1rem;
-      font-weight: 500;
+      @include input-form(none);
+    }
 
-      &:focus {
-        outline: none;
-      }
+    .input-form-error-active {
+      width: min(42em, 100%);
+      @include input-form(5px solid theme.$red-color-hover);
 
-      &::placeholder {
-        color: theme.$gray-violet-color;
-        font-size: 1rem;
+      p {
+        font-family: "Poppins", sans-serif;
+        color: theme.$red-color-hover;
+        font-size: 1.1rem;
         font-weight: 500;
+        font-style: italic;
+        margin-top: 1em;
       }
     }
 
@@ -80,6 +102,7 @@ $link-padding: 1.5em;
 
       button {
         width: 11.5em;
+        align-self: flex-start;
         white-space: nowrap;
       }
     }
