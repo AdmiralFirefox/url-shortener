@@ -1,0 +1,12 @@
+@use "themeprovider/themeprovider" as theme;
+
+.home-content-background {
+  background: theme.$light-gray-color;
+  margin-top: 12em;
+}
+
+@media (min-width: theme.$media-query-normal-value) {
+  .home-content-background {
+    margin-top: 9.5em;
+  }
+}
