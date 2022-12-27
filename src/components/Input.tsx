@@ -4,6 +4,7 @@ import Axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { IoMdCloseCircle } from "react-icons/io";
 import { IconContext } from "react-icons";
+import SyncLoader from "react-spinners/SyncLoader";
 import styles from "../styles/input/Input.module.scss";
 
 interface LinkProps {
@@ -17,9 +18,12 @@ const Input = () => {
   const [urlLink, setUrlLink] = useState("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  // Submitting a Link and Shortening It
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
 
     if (
       !urlLink.includes("http://") &&
@@ -28,6 +32,7 @@ const Input = () => {
     ) {
       setErrorMessage("Please enter a valid url.");
       setError(true);
+      setLoading(false);
     } else {
       setError(false);
       try {
@@ -43,10 +48,12 @@ const Input = () => {
 
         setLinks([...links].concat(newLink));
         setUrlLink("");
+        setLoading(false);
       } catch (err) {
         console.log(err);
         setErrorMessage("Something went wrong. Please double check your url.");
         setError(true);
+        setLoading(false);
       }
     }
   };
@@ -55,12 +62,14 @@ const Input = () => {
     setUrlLink(e.target.value);
   };
 
+  // Delete a Link
   const deleteLink = (id: string) => {
     const updatedLinks = [...links].filter((link) => link.id != id);
 
     setLinks(updatedLinks);
   };
 
+  // Storing Links in Local Storage
   useEffect(() => {
     const json = localStorage.getItem("LINKS") as string;
     const saveLinks = JSON.parse(json);
@@ -92,6 +101,13 @@ const Input = () => {
               required
             />
             {error ? <p>{errorMessage}</p> : ""}
+            {loading ? (
+              <div className={styles["loading-spinner-wrapper"]}>
+                <SyncLoader color="hsl(180, 66%, 49%)" size={15} />
+              </div>
+            ) : (
+              ""
+            )}
           </div>
           <button type="submit">Shorten It!</button>
         </form>
