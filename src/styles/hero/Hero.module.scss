@@ -1,0 +1,101 @@
+@use "../themeprovider/themeprovider" as theme;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap");
+
+$link-transition: 0.3s ease-in-out;
+
+.hero-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 2em;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(24em, 85%);
+
+    h1 {
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: center;
+      color: theme.$dark-blue-color;
+    }
+
+    p {
+      font-family: "Poppins", sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      margin-top: 0.3em;
+      color: theme.$gray-violet-color;
+      line-height: 1.6em;
+    }
+
+    form {
+      button {
+        font-family: "Poppins", sans-serif;
+        background: theme.$cyan-color;
+        color: theme.$white-color;
+        border: none;
+        padding: 0.8em 2.3em;
+        font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+        font-weight: 700;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-top: 1.8em;
+        transition: background $link-transition;
+
+        &:hover {
+          background: theme.$cyan-color-hover;
+        }
+      }
+    }
+  }
+
+  .hero-image-wrapper {
+    width: min(45em, 130%);
+    transform: translateX(23vw);
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: theme.$media-query-normal-value) {
+  .hero-wrapper {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0em;
+    margin-top: 4.3em;
+
+    section {
+      align-items: flex-start;
+      width: 35em;
+      margin-left: 2em;
+
+      h1 {
+        text-align: left;
+      }
+
+      p {
+        text-align: left;
+        font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+        width: 25em;
+      }
+    }
+
+    .hero-image-wrapper {
+      width: min(45em, 100%);
+      transform: translateX(14.5vw);
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
