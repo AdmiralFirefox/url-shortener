@@ -2,7 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 $link-transition: 0.3s ease-in-out;
+$link-padding: 1.5em;
 
+// Input Content
 .input-wrapper {
   display: flex;
   justify-content: center;
@@ -79,6 +81,128 @@ $link-transition: 0.3s ease-in-out;
       button {
         width: 11.5em;
         white-space: nowrap;
+      }
+    }
+  }
+}
+
+// Links Content
+.links-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5em;
+  margin-top: -3.5em;
+
+  .links-content {
+    background: theme.$white-color;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: min(63em, 90%);
+    border-radius: 10px;
+
+    div:first-child {
+      border-bottom: 1px solid theme.$gray-color;
+      width: 100%;
+      padding: $link-padding;
+
+      p {
+        font-family: "Poppins", sans-serif;
+        color: theme.$dark-blue-color;
+        font-weight: 600;
+        font-size: 1.1rem;
+        word-break: break-all;
+      }
+    }
+
+    div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.05em;
+      width: 100%;
+      padding: $link-padding;
+
+      p {
+        font-family: "Poppins", sans-serif;
+        color: theme.$cyan-color;
+        font-weight: 600;
+        font-size: 1.1rem;
+        word-break: break-all;
+      }
+
+      button:first-of-type {
+        font-family: "Poppins", sans-serif;
+        background: theme.$cyan-color;
+        color: theme.$white-color;
+        border: none;
+        padding: 1em 2.3em;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 5px;
+        width: 100%;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background $link-transition;
+
+        &:hover {
+          background: theme.$cyan-color-hover;
+        }
+      }
+
+      button:nth-of-type(2) {
+        border-radius: 5px;
+        padding: 1em 1.2em;
+        border: none;
+        background: theme.$red-color;
+        transition: background $link-transition;
+        width: 100%;
+        cursor: pointer;
+
+        .close-icon {
+          font-size: 1.7rem;
+          color: theme.$white-color;
+        }
+
+        &:hover {
+          background: theme.$red-color-hover;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: theme.$media-query-normal-value) {
+  .links-wrapper {
+    gap: 1.15em;
+    margin-top: -2.45em;
+
+    .links-content {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      div:first-child {
+        border-bottom: none;
+      }
+
+      div:nth-child(2) {
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+
+        p {
+          word-break: normal;
+        }
+
+        button:first-of-type {
+          padding: 0.6em 2.5em;
+        }
+
+        button:nth-of-type(2) {
+          padding: 0.5em 1.3em;
+        }
       }
     }
   }
