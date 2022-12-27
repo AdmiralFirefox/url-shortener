@@ -55,6 +55,12 @@ const Input = () => {
     setUrlLink(e.target.value);
   };
 
+  const deleteLink = (id: string) => {
+    const updatedLinks = [...links].filter((link) => link.id != id);
+
+    setLinks(updatedLinks);
+  };
+
   useEffect(() => {
     const json = localStorage.getItem("LINKS") as string;
     const saveLinks = JSON.parse(json);
@@ -100,7 +106,7 @@ const Input = () => {
             <div>
               <p>{link.shortLink}</p>
               <button>Copy</button>
-              <button>
+              <button onClick={() => deleteLink(link.id)}>
                 <IconContext.Provider
                   value={{ className: styles["close-icon"] }}
                 >
