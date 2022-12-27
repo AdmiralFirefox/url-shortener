@@ -42,7 +42,7 @@ $link-transition: 0.3s ease-in-out;
         color: theme.$white-color;
         border: none;
         padding: 0.8em 2.3em;
-        font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+        font-size: 1rem;
         font-weight: 700;
         border-radius: 50px;
         cursor: pointer;
@@ -86,6 +86,12 @@ $link-transition: 0.3s ease-in-out;
         text-align: left;
         font-size: clamp(0.9rem, 1.4vw, 1.15rem);
         width: 25em;
+      }
+
+      form {
+        button {
+          font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+        }
       }
     }
 
