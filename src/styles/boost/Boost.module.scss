@@ -1,0 +1,52 @@
+@use "../themeprovider/themeprovider" as theme;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+$link-transition: 0.3s ease-in-out;
+
+.boost-wrapper {
+  background: url("/bg-boost-mobile.svg") theme.$dark-violet-color;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5em 2em;
+
+  h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(1.7rem, 2.5vw, 2.2rem);
+    text-align: center;
+    color: theme.$white-color;
+  }
+
+  form {
+    button {
+      font-family: "Poppins", sans-serif;
+      background: theme.$cyan-color;
+      color: theme.$white-color;
+      border: none;
+      padding: 0.8em 2.3em;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 1.1em;
+      transition: background $link-transition;
+
+      &:hover {
+        background: theme.$cyan-color-hover;
+      }
+    }
+  }
+}
+
+@media (min-width: theme.$media-query-normal-value) {
+  .boost-wrapper {
+    background: url("/bg-boost-desktop.svg") theme.$dark-violet-color;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 3.8em 2em;
+  }
+}
