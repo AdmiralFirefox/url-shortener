@@ -1,0 +1,87 @@
+@use "../themeprovider/themeprovider" as theme;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5em;
+    width: min(30em, 87%);
+    margin-top: 6em;
+    margin-bottom: 10em;
+
+    section {
+      background: theme.$white-color;
+      border-radius: 10px;
+      padding: 0em 2em 2em 2em;
+
+      .card-image-wrapper {
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 5.5em;
+          background: theme.$dark-violet-color;
+          padding: 1.2em;
+          border-radius: 50px;
+          position: relative;
+          bottom: 2.8em;
+        }
+      }
+
+      h1 {
+        color: theme.$dark-blue-color;
+        font-family: "Poppins", sans-serif;
+        margin-top: -0.55em;
+        font-size: clamp(1.3rem, 1.8vw, 1.5rem);
+        text-align: center;
+      }
+
+      p {
+        color: theme.$gray-violet-color;
+        font-family: "Poppins", sans-serif;
+        margin-top: 1em;
+        line-height: 1.7em;
+        font-size: clamp(0.9rem, 1.3vw, 1rem);
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (min-width: theme.$media-query-normal-value) {
+  .cards-wrapper {
+    .cards-container {
+      gap: 2em;
+      grid-template-columns: repeat(3, 1fr);
+      width: min(73em, 92%);
+      margin-top: 10em;
+
+      section:first-of-type {
+        transform: translateY(-3em);
+      }
+
+      section:last-of-type {
+        transform: translateY(3em);
+      }
+
+      section {
+        .card-image-wrapper {
+          justify-content: flex-start;
+        }
+
+        h1 {
+          text-align: left;
+        }
+
+        p {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

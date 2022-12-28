@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "imgPath": "/icon-brand-recognition.svg",
+    "cardTitle": "Brand Recognition",
+    "cardDescription": "Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content."
+  },
+  {
+    "id": 2,
+    "imgPath": "/icon-detailed-records.svg",
+    "cardTitle": "Detailed Records",
+    "cardDescription": "Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decitions."
+  },
+  {
+    "id": 3,
+    "imgPath": "/icon-fully-customizable.svg",
+    "cardTitle": "Fully Customizable",
+    "cardDescription": "Improve brand awareness and content discoverability through customizable links, supercharging audience engagement."
+  }
+]
