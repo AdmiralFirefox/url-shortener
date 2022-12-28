@@ -129,13 +129,47 @@ $link-padding: 1.5em;
   }
 }
 
+// Clear Links Button
+.clear-links-button {
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin-top: -3.2em;
+    margin-bottom: 2em;
+    font-family: "Poppins", sans-serif;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    border: none;
+    color: theme.$white-color;
+    font-size: 1.2rem;
+    background: theme.$red-color;
+    transition: background $link-transition;
+    width: min(10em, 90%);
+    cursor: pointer;
+    font-weight: 500;
+
+    &:hover {
+      background: theme.$red-color-hover;
+    }
+  }
+}
+
+@media (min-width: theme.$media-query-normal-value) {
+  .clear-links-button {
+    button {
+      margin-top: -1.5em;
+      margin-bottom: 1.8em;
+    }
+  }
+}
+
 // Links Content
 .links-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2.5em;
-  margin-top: -3.5em;
 
   .links-content {
     background: theme.$white-color;
@@ -231,7 +265,6 @@ $link-padding: 1.5em;
 @media (min-width: theme.$media-query-normal-value) {
   .links-wrapper {
     gap: 1.15em;
-    margin-top: -2.45em;
 
     .links-content {
       flex-direction: row;

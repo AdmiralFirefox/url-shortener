@@ -88,6 +88,11 @@ const Input = () => {
     setLinks(updatedLinks);
   };
 
+  // Clear all Links
+  const clearAllLinks = () => {
+    setLinks([]);
+  };
+
   // Storing Links in Local Storage
   useEffect(() => {
     const json = localStorage.getItem("LINKS") as string;
@@ -134,6 +139,12 @@ const Input = () => {
           </button>
         </form>
       </div>
+
+      {links.length > 0 && (
+        <div className={styles["clear-links-button"]}>
+          <button onClick={clearAllLinks}>Clear All Links</button>
+        </div>
+      )}
 
       <ul className={styles["links-wrapper"]}>
         {links.map((link) => (
