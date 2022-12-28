@@ -260,6 +260,10 @@ $link-padding: 1.5em;
       }
     }
   }
+
+  .links-content:last-child {
+    margin-bottom: 6em;
+  }
 }
 
 @media (min-width: theme.$media-query-normal-value) {
@@ -296,6 +300,10 @@ $link-padding: 1.5em;
           padding: 0.23em 1.1em;
         }
       }
+    }
+
+    .links-content:last-child {
+      margin-bottom: 3.5em;
     }
   }
 }
