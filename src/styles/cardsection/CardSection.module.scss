@@ -35,7 +35,7 @@
       h1 {
         color: theme.$dark-blue-color;
         font-family: "Poppins", sans-serif;
-        margin-top: -0.55em;
+        margin-top: -0.85em;
         font-size: clamp(1.3rem, 1.8vw, 1.5rem);
         text-align: center;
       }
@@ -76,6 +76,7 @@
 
         h1 {
           text-align: left;
+          margin-top: -0.55em;
         }
 
         p {
