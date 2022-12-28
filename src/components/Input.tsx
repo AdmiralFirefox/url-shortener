@@ -2,7 +2,7 @@ import { ChangeEvent, useState, useEffect } from "react";
 import type { FormEvent } from "react";
 import Axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import { IoMdCloseCircle } from "react-icons/io";
+import { IoMdCloseCircle } from "@react-icons/all-files/io/IoMdCloseCircle";
 import { IconContext } from "react-icons";
 import SyncLoader from "react-spinners/SyncLoader";
 import styles from "../styles/input/Input.module.scss";
