@@ -1,6 +1,32 @@
 @use "../themeprovider/themeprovider" as theme;
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
+// Card Line
+.card-line-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .card-line {
+    position: absolute;
+    margin-top: 7.5em;
+    background: theme.$cyan-color;
+    width: 0.6em;
+    height: min(65em, 24%);
+    z-index: 1;
+  }
+}
+
+@media (min-width: theme.$media-query-normal-value) {
+  .card-line-wrapper {
+    .card-line {
+      margin-top: 17em;
+      width: min(70em, 88%);
+      height: 0.6em;
+    }
+  }
+}
+
+// Cards
 .cards-wrapper {
   display: flex;
   justify-content: center;
@@ -12,6 +38,8 @@
     width: min(30em, 87%);
     margin-top: 6em;
     margin-bottom: 10em;
+    position: relative;
+    z-index: 2;
 
     section {
       background: theme.$white-color;
