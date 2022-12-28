@@ -121,7 +121,7 @@ const Input = () => {
               <p>{link.shortLink}</p>
               <button>Copy</button>
               <button onClick={() => deleteLink(link.id)}>
-                <img src="/close-icon.svg" alt="Close Icon" />
+                <i className="fa-solid fa-circle-xmark"></i>
               </button>
             </div>
           </li>

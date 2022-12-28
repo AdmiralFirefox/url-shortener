@@ -182,8 +182,10 @@ $link-padding: 1.5em;
 
       button:nth-of-type(2) {
         border-radius: 5px;
-        padding: 1em 2.3em;
+        padding: 0.45em 1em;
         border: none;
+        color: theme.$white-color;
+        font-size: 1.7rem;
         background: theme.$red-color;
         transition: background $link-transition;
         width: 100%;
@@ -191,13 +193,6 @@ $link-padding: 1.5em;
 
         &:hover {
           background: theme.$red-color-hover;
-        }
-
-        img {
-          width: 2em;
-          height: 2em;
-          filter: invert(100%) sepia(5%) saturate(59%) hue-rotate(337deg)
-            brightness(116%) contrast(100%);
         }
       }
     }
@@ -232,7 +227,7 @@ $link-padding: 1.5em;
         }
 
         button:nth-of-type(2) {
-          padding: 0.5em 2.1em;
+          padding: 0.23em 1.1em;
         }
       }
     }
