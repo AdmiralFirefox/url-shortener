@@ -1,4 +1,5 @@
 import { ChangeEvent, useState, useEffect } from "react";
+import useCopyToClipboard from "../hooks/useCopyToClipboard";
 import type { FormEvent } from "react";
 import Axios from "axios";
 import { v4 as uuidv4 } from "uuid";
@@ -17,6 +18,9 @@ const Input = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isCopied, setIsCopied] = useState<string | boolean>(false);
+
+  const [_value, copy] = useCopyToClipboard();
 
   // Submitting a Link and Shortening It
   const handleSubmit = async (e: FormEvent) => {
@@ -136,8 +140,28 @@ const Input = () => {
             </div>
             <div>
               <p>{link.shortLink}</p>
-              <button>Copy</button>
-              <button onClick={() => deleteLink(link.id)}>
+              {isCopied === link.id ? (
+                <button
+                  onClick={() => copy(link.shortLink)}
+                  className={styles["link-copied-button"]}
+                >
+                  Copied!
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    copy(link.shortLink);
+                    setIsCopied(link.id);
+                  }}
+                  className={styles["link-not-copied-button"]}
+                >
+                  Copy
+                </button>
+              )}
+              <button
+                onClick={() => deleteLink(link.id)}
+                className={styles["close-button"]}
+              >
                 <i className="fa-solid fa-circle-xmark"></i>
               </button>
             </div>
