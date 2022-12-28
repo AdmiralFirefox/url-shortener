@@ -49,7 +49,7 @@
     gap: 6.5em;
     width: min(30em, 87%);
     margin-top: 6em;
-    margin-bottom: 10em;
+    margin-bottom: 6em;
     position: relative;
     z-index: 2;
 
@@ -100,6 +100,7 @@
       grid-template-columns: repeat(3, 1fr);
       width: min(73em, 92%);
       margin-top: 10em;
+      margin-bottom: 12.3em;
 
       section:first-of-type {
         transform: translateY(-3em);
