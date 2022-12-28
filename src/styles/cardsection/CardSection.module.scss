@@ -8,14 +8,26 @@
 
   .card-line {
     position: absolute;
-    margin-top: 7.5em;
+    margin-top: 6.5em;
     background: theme.$cyan-color;
     width: 0.6em;
-    height: min(65em, 24%);
+    height: 58em;
     z-index: 1;
   }
 }
 
+// Card Line Small Screen
+@media (min-width: theme.$media-query-extra-small-value) {
+  .card-line-wrapper {
+    .card-line {
+      margin-top: 6.5em;
+      width: 0.6em;
+      height: 50em;
+    }
+  }
+}
+
+// Card Line Big Screen
 @media (min-width: theme.$media-query-normal-value) {
   .card-line-wrapper {
     .card-line {
@@ -34,7 +46,7 @@
   .cards-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 5em;
+    gap: 6.5em;
     width: min(30em, 87%);
     margin-top: 6em;
     margin-bottom: 10em;
