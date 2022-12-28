@@ -149,7 +149,7 @@ $link-padding: 1.5em;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 1.05em;
+      gap: 1em;
       width: 100%;
       padding: $link-padding;
 
@@ -182,17 +182,14 @@ $link-padding: 1.5em;
 
       button:nth-of-type(2) {
         border-radius: 5px;
-        padding: 1em 1.2em;
+        padding: 0.55em 1.2em;
         border: none;
+        color: theme.$white-color;
         background: theme.$red-color;
+        font-size: 1.5rem;
         transition: background $link-transition;
         width: 100%;
         cursor: pointer;
-
-        .close-icon {
-          font-size: 1.7rem;
-          color: theme.$white-color;
-        }
 
         &:hover {
           background: theme.$red-color-hover;
@@ -230,7 +227,7 @@ $link-padding: 1.5em;
         }
 
         button:nth-of-type(2) {
-          padding: 0.5em 1.3em;
+          padding: 0.37em 1.3em;
         }
       }
     }

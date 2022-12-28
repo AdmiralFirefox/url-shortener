@@ -2,8 +2,6 @@ import { ChangeEvent, useState, useEffect } from "react";
 import type { FormEvent } from "react";
 import Axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import { IoMdCloseCircle } from "@react-icons/all-files/io/IoMdCloseCircle";
-import { IconContext } from "react-icons";
 import SyncLoader from "react-spinners/SyncLoader";
 import styles from "../styles/input/Input.module.scss";
 
@@ -123,11 +121,7 @@ const Input = () => {
               <p>{link.shortLink}</p>
               <button>Copy</button>
               <button onClick={() => deleteLink(link.id)}>
-                <IconContext.Provider
-                  value={{ className: styles["close-icon"] }}
-                >
-                  <IoMdCloseCircle />
-                </IconContext.Provider>
+                <i className="fa-solid fa-circle-xmark"></i>
               </button>
             </div>
           </li>
