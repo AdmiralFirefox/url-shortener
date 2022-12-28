@@ -118,6 +118,7 @@ const Input = () => {
               onChange={handleChange}
               value={urlLink}
               required
+              disabled={loading ? true : false}
             />
             {error ? <p>{errorMessage}</p> : ""}
             {loading ? (
@@ -128,7 +129,9 @@ const Input = () => {
               ""
             )}
           </div>
-          <button type="submit">Shorten It!</button>
+          <button type="submit" disabled={loading ? true : false}>
+            Shorten It!
+          </button>
         </form>
       </div>
 

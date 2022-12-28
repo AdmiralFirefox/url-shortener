@@ -11,6 +11,7 @@ $link-padding: 1.5em;
     border: none;
     padding: 1em 1.5em;
     border-radius: 5px;
+    background: theme.$white-color;
     color: theme.$dark-blue-color;
     font-size: 1rem;
     font-weight: 500;
@@ -24,6 +25,13 @@ $link-padding: 1.5em;
       color: theme.$gray-violet-color;
       font-size: 1rem;
       font-weight: 500;
+    }
+
+    &:disabled {
+      opacity: 1;
+      background: theme.$white-color;
+      color: theme.$dark-blue-color;
+      cursor: not-allowed;
     }
   }
 
@@ -89,6 +97,12 @@ $link-padding: 1.5em;
 
       &:hover {
         background: theme.$cyan-color-hover;
+      }
+
+      &:disabled {
+        background: theme.$gray-color;
+        transition: none;
+        cursor: not-allowed;
       }
     }
   }
