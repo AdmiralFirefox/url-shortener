@@ -1,0 +1,104 @@
+@use "../themeprovider/themeprovider" as theme;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+$link-transition: 0.3s ease-in-out;
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  background: theme.$slightly-dark-color;
+  padding: 4.5em 2em;
+  gap: 3em;
+
+  .footer-image-wrapper {
+    img {
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(178deg)
+        brightness(104%) contrast(102%);
+    }
+  }
+
+  .footer-links-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3em;
+
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        color: theme.$white-color;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: 1.1em;
+      }
+
+      a {
+        font-family: "Poppins", sans-serif;
+        color: theme.$gray-color;
+        text-decoration: none;
+        line-height: 2.2em;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color $link-transition;
+
+        &:hover {
+          color: theme.$cyan-color;
+        }
+      }
+    }
+  }
+
+  .footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+
+    a {
+      text-decoration: none;
+      color: theme.$white-color;
+      font-size: 1.7rem;
+      transition: color $link-transition;
+
+      &:hover {
+        color: theme.$cyan-color;
+      }
+    }
+  }
+}
+
+@media (min-width: theme.$media-query-normal-value) {
+  .footer-container {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2em;
+
+    .footer-links-wrapper {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 4em;
+
+      section {
+        align-items: flex-start;
+      }
+    }
+  }
+}
+
+@media (min-width: theme.$media-query-large-value) {
+  .footer-container {
+    gap: 3em;
+
+    .footer-links-wrapper {
+      gap: 6em;
+    }
+  }
+}
