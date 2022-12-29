@@ -6,6 +6,11 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+
+const keywords =
+  "url shortener, url link shortener, url link shortener netlify, link shortener, link shortener netlify";
+const description =
+  "A url shortener website. Copy the long link or url and paste it in the text box and let it generate a short link for you.";
 ---
 
 <!DOCTYPE html>
@@ -13,6 +18,8 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content={keywords} />
+    <meta name="description" content={description} />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <link
