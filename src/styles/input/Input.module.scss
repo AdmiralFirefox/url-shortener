@@ -4,7 +4,7 @@
 $link-transition: 0.3s ease-in-out;
 $link-padding: 1.5em;
 
-@mixin input-form($form-border) {
+@mixin input-form($form-border, $placeholder-color) {
   input {
     font-family: "Poppins", sans-serif;
     width: min(42em, 100%);
@@ -22,7 +22,7 @@ $link-padding: 1.5em;
     }
 
     &::placeholder {
-      color: theme.$gray-violet-color;
+      color: $placeholder-color;
       font-size: 1rem;
       font-weight: 500;
     }
@@ -64,12 +64,15 @@ $link-padding: 1.5em;
 
     .input-form {
       width: min(42em, 100%);
-      @include input-form(none);
+      @include input-form(none, theme.$gray-violet-color);
     }
 
     .input-form-error-active {
       width: min(42em, 100%);
-      @include input-form(5px solid theme.$red-color-hover);
+      @include input-form(
+        5px solid theme.$red-color-hover,
+        theme.$slightly-transparent-red-color
+      );
 
       p {
         font-family: "Poppins", sans-serif;
