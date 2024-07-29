@@ -38,13 +38,24 @@ const Input = () => {
     } else {
       setError(false);
       try {
-        const res = await Axios.get(
-          `https://api.shrtco.de/v2/shorten?url=${urlLink}`
-        );
+        const data = new FormData();
+        data.append("url", urlLink);
+
+        const options = {
+          method: "POST",
+          url: "https://url-shortener-service.p.rapidapi.com/shorten",
+          headers: {
+            "x-rapidapi-key": import.meta.env.PUBLIC_RAPID_API_KEY,
+            "x-rapidapi-host": "url-shortener-service.p.rapidapi.com",
+          },
+          data: data,
+        };
+
+        const res = await Axios.request(options);
 
         const newLink = {
           id: uuidv4(),
-          shortLink: res.data.result.short_link,
+          shortLink: res.data.result_url,
           originalLink: urlLink,
         };
 
